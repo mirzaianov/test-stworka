@@ -1,4 +1,4 @@
-// Вспомогательная функция для борьбы с проблемой плавающей точки в JS
+// Вспомогательная функция для борьбы с проблемой плавающей точки в JS и огругления до 3 знака после запятой
 
 const fixFloatingPoint = (num: number): number => Math.round(num * 1000) / 1000;
 
@@ -25,8 +25,10 @@ const dataToPoints = (
   const res = [0, 0];
 
   for (const [len, deg] of data) {
-    const x: number = res[res.length - 2] + mult * xDirCoeff * len * Math.cos(deg * Math.PI / 180);
-    const y: number = res[res.length - 1] + mult * yDirCoeff * len * Math.sin(deg * Math.PI / 180);
+    const x: number =
+      res[res.length - 2] + mult * xDirCoeff * len * Math.cos((deg * Math.PI) / 180);
+    const y: number =
+      res[res.length - 1] + mult * yDirCoeff * len * Math.sin((deg * Math.PI) / 180);
 
     res.push(fixFloatingPoint(x), fixFloatingPoint(y));
   }
@@ -34,23 +36,37 @@ const dataToPoints = (
   return res.join(' ');
 };
 
-console.log('Координаты без поправки на систему координат', dataToPoints([
-  [1665, 0],
-  [947, 90],
-  [557, 0],
-  [1300, 90],
-  [2225, 180],
-  [2239, 270],
-], 0.1));
+console.log(
+  'Координаты без поправки на систему координат',
+  dataToPoints(
+    [
+      [1665, 0],
+      [947, 90],
+      [557, 0],
+      [1300, 90],
+      [2225, 180],
+      [2239, 270],
+    ],
+    0.1,
+  ),
+);
 
-console.log('Координаты с поправкой на систему координат', dataToPoints([
-  [1665, 0],
-  [947, 90],
-  [557, 0],
-  [1300, 90],
-  [2225, 180],
-  [2239, 270],
-], 0.1, -1, -1));
+console.log(
+  'Координаты с поправкой на систему координат',
+  dataToPoints(
+    [
+      [1665, 0],
+      [947, 90],
+      [557, 0],
+      [1300, 90],
+      [2225, 180],
+      [2239, 270],
+    ],
+    0.1,
+    -1,
+    -1,
+  ),
+);
 
 /**
  * Модернизированная версия функции, которая возвращает не простую строку, а SVG path. Который можно
@@ -72,8 +88,10 @@ const dataToPath = (
   const store = [[0, 0]];
 
   for (const [len, deg] of data) {
-    const x: number = store[store.length - 1][0] + mult * xDirCoeff * len * Math.cos(deg * Math.PI / 180);
-    const y: number = store[store.length - 1][1] + mult * yDirCoeff * len * Math.sin(deg * Math.PI / 180);
+    const x: number =
+      store[store.length - 1][0] + mult * xDirCoeff * len * Math.cos((deg * Math.PI) / 180);
+    const y: number =
+      store[store.length - 1][1] + mult * yDirCoeff * len * Math.sin((deg * Math.PI) / 180);
 
     store.push([fixFloatingPoint(x), fixFloatingPoint(y)]);
   }
@@ -87,20 +105,34 @@ const dataToPath = (
   return `${startLetter} ${res.join(` ${lineLetter} `)} ${endLetter}`;
 };
 
-console.log('Путь без поправки на систему координат', dataToPath([
-  [1665, 0],
-  [947, 90],
-  [557, 0],
-  [1300, 90],
-  [2225, 180],
-  [2239, 270],
-], 0.1));
+console.log(
+  'Путь без поправки на систему координат',
+  dataToPath(
+    [
+      [1665, 0],
+      [947, 90],
+      [557, 0],
+      [1300, 90],
+      [2225, 180],
+      [2239, 270],
+    ],
+    0.1,
+  ),
+);
 
-console.log('Путь с поправкой на систему координат', dataToPath([
-  [1665, 0],
-  [947, 90],
-  [557, 0],
-  [1300, 90],
-  [2225, 180],
-  [2239, 270],
-], 0.1, -1, -1));
+console.log(
+  'Путь с поправкой на систему координат',
+  dataToPath(
+    [
+      [1665, 0],
+      [947, 90],
+      [557, 0],
+      [1300, 90],
+      [2225, 180],
+      [2239, 270],
+    ],
+    0.1,
+    -1,
+    -1,
+  ),
+);
