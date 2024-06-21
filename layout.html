@@ -29,7 +29,7 @@
     <ul class="comment">
       <li>
         Надеюсь, Вам не была нужна pixel-perfect верстка.<br />
-        Потому что я подкорректировал размеры под
+        Потому что я подкорректировал некоторые размеры под
         <span class="comment__link">
           <a
             href="https://habr.com/ru/companies/productivity_inside/articles/319700/"
@@ -43,10 +43,25 @@
       <li>Компонент поддерживает отзывчивую верстку.</li>
     </ul>
     <div class="checklist">
-      <div class="checklist__chart"></div>
-      <div class="checklist__wrapper">
+      <div class="checklist__progress-bar">
+        <svg
+          class="progress-bar__svg"
+          width="60px"
+          height="60px"
+          viewBox="0 0 60 60"
+        >
+          <circle class="progress-bar__circle" />
+          <circle class="progress-bar__arc" />
+        </svg>
+        <span class="progress-bar__value">0/7</span>
+      </div>
+      <div class="checklist__content-wrapper">
         <div class="checklist__content">
           <div class="checklist__title">Чеклист</div>
+          <span class="checklist__heading">Выполнено: 0 из 7 действий</span>
+          <span class="checklist__subheading"
+            >Следующее действие: Созвониться с клиентом до 23.05.24 12:00</span
+          >
         </div>
         <button
           class="checklist__button"

@@ -18,6 +18,16 @@
 button {
   font: inherit;
   border: none;
+  transition: all 300ms ease-in-out;
+  text-wrap: nowrap;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translateY(-5px);
+  }
 }
 
 html {
@@ -76,32 +86,97 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
   background-color: var(--primary-30);
   border-radius: 0.75rem;
   max-width: 743px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
 
-  .checklist__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-20);
-    padding-inline: 0.75rem;
-    border-radius: 1000rem;
-    width: fit-content;
-    font-size: 0.75rem;
+  .checklist__progress-bar {
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    .progress-bar__svg {
+      .progress-bar__circle {
+        cx: 30;
+        cy: 30;
+        r: 29;
+        stroke: var(--neutral-00);
+        stroke-opacity: 0.5;
+        stroke-width: 1;
+        fill: transparent;
+      }
+
+      .progress-bar__arc {
+        cx: 30;
+        cy: 30;
+        r: 29;
+        stroke: var(--neutral-00);
+        stroke-width: 2;
+        fill: transparent;
+        stroke-dasharray: 4.555 176.656;
+        stroke-linecap: round;
+        transform: rotate(-90deg);
+        transform-origin: 30px 30px;
+      }
+    }
+
+    .progress-bar__value {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.25rem;
+    }
   }
 
-  .checklist__button {
+  .checklist__content-wrapper {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background-color: var(--neutral-10);
-    color: var(--text-10);
-    padding-inline: 1.5rem;
-    padding-block: 0.75rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-    font-size: 0.875rem;
+    align-items: center;
+    gap: 1.5rem;
+
+    .checklist__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+
+      .checklist__title {
+        background-color: var(--primary-20);
+        padding-inline: 0.75rem;
+        border-radius: 1000rem;
+        width: fit-content;
+        font-size: 0.75rem;
+      }
+
+      .checklist__heading {
+        font-size: 0.9375rem;
+        font-weight: 600;
+      }
+
+      .checklist__subheading {
+        font-size: 0.75rem;
+      }
+    }
+
+    .checklist__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--neutral-10);
+      color: var(--text-10);
+      padding-inline: 1.5rem;
+      padding-block: 0.75rem;
+      border-radius: 0.5rem;
+      width: fit-content;
+      font-size: 0.875rem;
+    }
   }
 }
 
