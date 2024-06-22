@@ -50,8 +50,28 @@
           height="60px"
           viewBox="0 0 60 60"
         >
-          <circle class="progress-bar__circle" />
-          <circle class="progress-bar__arc" />
+          <circle
+            class="progress-bar__circle"
+            cx="30"
+            cy="30"
+            r="29"
+            stroke="var(--neutral-00)"
+            stroke-opacity="0.5"
+            stroke-width="1"
+            fill="transparent"
+          />
+          <circle
+            class="progress-bar__arc"
+            cx="30"
+            cy="30"
+            r="29"
+            stroke="var(--neutral-00)"
+            stroke-width="2"
+            fill="transparent"
+            stroke-dasharray="4.555 176.656"
+            stroke-linecap="round"
+            transform="rotate(-90, 30, 30)"
+          />
         </svg>
         <span class="progress-bar__value">0/7</span>
       </div>

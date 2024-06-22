@@ -98,31 +98,6 @@ body {
     width: 60px;
     height: 60px;
 
-    .progress-bar__svg {
-      .progress-bar__circle {
-        cx: 30;
-        cy: 30;
-        r: 29;
-        stroke: var(--neutral-00);
-        stroke-opacity: 0.5;
-        stroke-width: 1;
-        fill: transparent;
-      }
-
-      .progress-bar__arc {
-        cx: 30;
-        cy: 30;
-        r: 29;
-        stroke: var(--neutral-00);
-        stroke-width: 2;
-        fill: transparent;
-        stroke-dasharray: 4.555 176.656;
-        stroke-linecap: round;
-        transform: rotate(-90deg);
-        transform-origin: 30px 30px;
-      }
-    }
-
     .progress-bar__value {
       position: absolute;
       top: 50%;
