@@ -1,4 +1,6 @@
-# Test Project
+# Stworka Test Project
+
+![MasterHead](./head.png)
 
 ## Description
 
